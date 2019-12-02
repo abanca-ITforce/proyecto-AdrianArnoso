@@ -12,7 +12,7 @@ export class ExploradorService {
   constructor(private http: HttpClient) { }
 
   getCountrys$() {
-    return this.http.get<any[]>(this.url).pipe(map(data => (data ? data : [])));
+    return this.http.get<any[]>(this.url).pipe(map(data => (data[1])));
   }
 
   getById$(id) {
