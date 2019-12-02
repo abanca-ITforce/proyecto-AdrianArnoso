@@ -3,8 +3,8 @@
 
 <mat-nav-list *ngIf="dataCountry$ | async as dataCountry; else empty">
   <a *ngFor="let data of dataCountry" mat-list-item >
-      <span> El nombre del pais con id {{data.id}} es  {{data.name}},
-        perteneciente a la region de {{ data.region.value }} y cuya capital es {{data.capitalCity}}</span>
+      <span> El nombre del pais con id <b>{{data.id}} </b>es <b>{{data.name}}</b>,
+        perteneciente a la region de <b>{{ data.region.value }}</b>  y cuya capital es <b>{{data.capitalCity}}</b></span>
 
 
 
