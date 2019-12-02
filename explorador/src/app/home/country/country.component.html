@@ -1,0 +1,16 @@
+<p>country works!</p>
+
+
+<mat-nav-list *ngIf="dataCountry$ | async as dataCountry; else empty">
+  <a *ngFor="let data of dataCountry" mat-list-item >
+      <span> El nombre del pais con id {{data.id}} es  {{data.name}}, perteneciente a la region de {{ data.region.value }}</span>
+
+
+
+
+
+  </a>
+</mat-nav-list>
+<ng-template #empty>
+  <h1>CARGANDO ...</h1>
+</ng-template>

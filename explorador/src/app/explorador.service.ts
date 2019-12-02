@@ -6,25 +6,22 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ExploradorService {
-  private url = 'https://api.worldbank.org/v2/country?per_page=1000&format=json';
+
+  private urlAllCountrys = 'https://api.worldbank.org/v2/country?per_page=1000&format=json';
+
   countryList: any[];
 
   constructor(private http: HttpClient) { }
 
   getCountrys$() {
-    return this.http.get<any[]>(this.url).pipe(map(data => (data[1])));
+    return this.http.get<any[]>(this.urlAllCountrys).pipe(map(data => (data[1])));
   }
 
   getById$(id) {
     return this.http
-      .get<any>(this.url + '/' + id)
-      .pipe(map(data => (data ? data : {})));
+      .get<any>('https://api.worldbank.org/v2/country/' + id + '?per_page=100&format=json')
+      .pipe(map(data => (data[1])));
   }
-
-  pruebaService(){
-    console.log('Esto esta dentro del service');
-  }
-
 
 }
 
