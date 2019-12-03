@@ -17,7 +17,7 @@ export class RegionComponent implements OnInit {
 
   ngOnInit() {
     const regionCode = this.activatedRoute.snapshot.params.regionCode;
-    this.region$ = this.api.getCountriesByRegionCode$(regionCode);
+    this.region$ = this.api.getRegionByCode$(regionCode);
   }
 }
 
