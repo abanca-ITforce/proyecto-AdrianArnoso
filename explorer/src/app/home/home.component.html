@@ -1,0 +1,8 @@
+<app-countries-list
+  *ngIf="countries$ | async as countries; else empty"
+  [countries]="countries"
+></app-countries-list>
+
+<ng-template #empty>
+  Loading...
+</ng-template>
