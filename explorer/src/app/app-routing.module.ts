@@ -4,22 +4,22 @@ import { RouterModule, Routes } from "@angular/router";
 const routes: Routes = [
   {
     path: "",
-    loadChildren: () => import("./home/home.module").then(m => m.HomeModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
-    path: "countries",
+    path: 'countries',
     loadChildren: () =>
-      import("./country/country.module").then(m => m.CountryModule)
+      import('./country/country.module').then(m => m.CountryModule)
   },
   {
-    path: "search",
+    path: 'search',
     loadChildren: () =>
-      import("./search/search.module").then(m => m.SearchModule)
+      import('./search/search.module').then(m => m.SearchModule)
   },
   {
-    path: "regions",
+    path: 'regions',
     loadChildren: () =>
-      import("./regions/regions.module").then(m => m.RegionsModule)
+      import('./regions/regions.module').then(m => m.RegionsModule)
   }
 ];
 
