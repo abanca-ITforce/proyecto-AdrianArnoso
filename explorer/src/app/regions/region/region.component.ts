@@ -10,6 +10,7 @@ import { ApiService } from '../../api.service';
 })
 export class RegionComponent implements OnInit {
   region$: Observable<any>;
+  countriesByRegionCode$: Observable<any>;
   constructor(
     private activatedRoute: ActivatedRoute,
     private api: ApiService
@@ -18,6 +19,7 @@ export class RegionComponent implements OnInit {
   ngOnInit() {
     const regionCode = this.activatedRoute.snapshot.params.regionCode;
     this.region$ = this.api.getRegionByCode$(regionCode);
+    this.countriesByRegionCode$ = this.api.getCountriesByRegionCode$(regionCode);
   }
 }
 

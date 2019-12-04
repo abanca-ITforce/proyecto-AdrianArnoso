@@ -5,3 +5,9 @@
 </app-region-card>
 <ng-template #empty>Loading...</ng-template>
 
+<app-countries-list
+  *ngIf="countriesByRegionCode$ | async as countries; else empty2"
+  [countries]="countries"
+></app-countries-list>
+
+<ng-template #empty2>Loading...</ng-template>
