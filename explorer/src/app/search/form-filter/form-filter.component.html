@@ -1,0 +1,31 @@
+<p>form-filter works!</p>
+<form [formGroup]="formFilter" novalidate>
+    <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>Incoming Level</mat-option>
+          <mat-option value="HIC">High income</mat-option>
+          <mat-option value="INX">Not classified</mat-option>
+          <mat-option value="LIC">Low income</mat-option>
+          <mat-option value="LMC">Lower middle income</mat-option>
+          <mat-option value="LMY">Low & middle income</mat-option>
+          <mat-option value="MIC">Middle income</mat-option>
+          <mat-option value="UMC">Upper middle income</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <p>You selected: {{selected}}</p>
+
+      <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            (click)="onSubmit()"
+          >
+            Submit
+          </button>
+        </mat-card-actions>
+
+      </form>

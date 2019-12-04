@@ -15,7 +15,6 @@ export class ApiService {
   private endPointCountriesByRegionCode = 'https://api.worldbank.org/v2/country?region=';
   private formatCountriesByRegionCode = '&per_page=1000&format=json';
   private endPointFlag = 'https://restcountries.eu/data/';
-  getFlagByCountryId$: any;
 
 
   constructor(private httpClient: HttpClient) {}
