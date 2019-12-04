@@ -8,6 +8,7 @@
 <app-countries-list
   *ngIf="countriesByRegionCode$ | async as countries; else empty2"
   [countries]="countries"
+  [isAbsolute]="true"
 ></app-countries-list>
 
 <ng-template #empty2>Loading...</ng-template>
