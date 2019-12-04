@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,8 @@ export class ApiService {
   private formatRegion = '?format=json';
   private endPointCountriesByRegionCode = 'https://api.worldbank.org/v2/country?region=';
   private formatCountriesByRegionCode = '&per_page=1000&format=json';
-
+  private endPointFlag = 'https://restcountries.eu/data/';
+  getFlagByCountryId$: any;
 
 
   constructor(private httpClient: HttpClient) {}
@@ -26,6 +28,10 @@ export class ApiService {
   getCountryById$(countryId) {
     const url = this.endPointCountries + '/' + countryId + this.format;
     return this.httpClient.get<any>(url).pipe(map(result => result[1][0]));
+  }
+  getFlagByCountryId(countryId){
+    const url = this.endPointFlag + countryId.toLowerCase() + '.svg';
+    return url;
   }
 
   getAllRegions$() {
