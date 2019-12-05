@@ -2,3 +2,6 @@
 <app-form-filter
 [incomes]="incomingLevels$ | async"
 (search)="onSearch($event)"></app-form-filter>
+
+  <app-countries-list [countries]="countries$ | async"></app-countries-list>
+

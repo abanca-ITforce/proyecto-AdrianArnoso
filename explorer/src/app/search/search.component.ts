@@ -10,16 +10,17 @@ import { ApiService } from '../api.service';
 })
 export class SearchComponent implements OnInit {
   incomingLevels$: Observable<any[]>;
+  countries$: Observable<any[]>;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService) {
-    this.incomingLevels$ = this.api.getIncomingLevels();
   }
 
   ngOnInit() {
+    this.incomingLevels$ = this.api.getIncomingLevels();
   }
 
   onSearch(search) {
-    this.api.onSearch$(search);
+    this.countries$ = this.api.onSearch$(search);
   }
 
 }
