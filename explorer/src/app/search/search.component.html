@@ -1,2 +1,4 @@
 <p>search works!</p>
-<app-form-filter></app-form-filter>
+<app-form-filter
+[incomes]="incomingLevels$ | async"
+(search)="onSearch($event)"></app-form-filter>

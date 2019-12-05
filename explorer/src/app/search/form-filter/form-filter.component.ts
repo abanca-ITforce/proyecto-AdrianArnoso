@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 
@@ -9,13 +9,18 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 })
 
 export class FormFilterComponent {
-  formFilter = new FormGroup({
-  incomingLevel: new FormControl()
+  @Input() incomes;
+
+  @Output() search = new EventEmitter<any>();
+
+
+  formFilter = this.fb.group({
+    incomes: [null, []],
   });
 
-  @Output() states;
   constructor(private fb: FormBuilder) {}
 
   onSubmit() {
+    this.search.emit(this.formFilter.value);
   }
 }

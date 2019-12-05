@@ -47,4 +47,13 @@ export class ApiService {
     const url = this.endPointCountriesByRegionCode + regionCode + this.formatCountriesByRegionCode;
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
+  getIncomingLevels() {
+    return this.httpClient.get('https://api.worldbank.org/v2/incomeLevel/?format=json')
+      .pipe(map(data => data ? data[1] : []));
+  }
+  onSearch$( search ) {
+    const url = this.endPointCountries + this.format;
+    console.log(search);
+    return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
+  }
 }
